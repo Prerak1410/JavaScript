@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body data-ng-app="myApp">
+<h1>Hello World!</h1>
+
+<div ng-controller="mainCtrl">
+
+
+    <side-bar user="user1" fruit="{{fruitname}}"></side-bar>
+    <side-bar user="user2"></side-bar>
+
+</div>
+
+<script>
+    var app=angular.module('myApp',[]);
+    app.controller("mainCtrl",function ($scope) {
+        $scope.user1={name:"John", country:"us"},
+            $scope.user2={name:"Jane", country:"NJ"},
+            $scope.fruitname="Apple"
+    })
+    app.directive("sideBar",function () {
+        return{
+            restrict:'AECM',
+            template: "<div><h1>Hey Prerak</h1><p>{{user.name}}</p>" +
+            "<div>{{fruit}}</div></div>",
+            replace: true,
+            scope:{
+                user:"=",
+                fruit:"@"
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

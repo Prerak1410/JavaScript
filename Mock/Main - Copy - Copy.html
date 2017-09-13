@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp">
+<head>
+    <title>Angular2</title>
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-controller="customersCtrl">
+<div id="One">
+    <input type="text" ng-model="Search">
+    <input type="button" value="Search">
+    <br><br>
+</div>
+<div id="Two">
+
+    <div ng-class="{M:'M', F:'F'}[x.gender]" ng-repeat="x in myData | filter:Search">
+        <h3>{{x.name}}</h3>
+        <p>
+            <b>ID:</b>{{x.id}}
+            <br>
+            <b>Email:</b>{{x.email}}
+            <br>
+            <b>City:</b>{{x.city}}
+        </p>
+    </div>
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('customersCtrl', function($scope, $http) {
+        $http.get("main.json").then(function (response) {
+            $scope.myData = response.data.Prerak;
+        });
+    });
+</script>
+</body>
+</html>

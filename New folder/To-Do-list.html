@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body ng-controller="myctrl">
+<h1>TO-DO-LIST</h1>
+<form>
+<input type="text" placeholder="Add New" ng-model="input">
+<input type="button" ng-click="add()" value="Click to add">
+</form>
+
+<p ng-repeat="x in list">
+    <input type="checkbox" ng-model="x.isFalse"><span>{{x.value}}</span>
+</p>
+
+<input type="button" ng-click="Remove()" value="Remove">
+<br>
+<br>
+
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller("myctrl",function ($scope) {
+        $scope.list=[{value:"Prerak",isFalse:false}];
+        
+        $scope.add= function () {
+            $scope.list.push({value:$scope.input,isFalse:false});
+            $scope.input="";
+        };
+
+        $scope.Remove=function () {
+
+            $scope.list = $scope.list.filter(function(item) {
+                return item.isFalse == false;
+            });
+        }
+
+    })
+</script>
+</body>
+</html>

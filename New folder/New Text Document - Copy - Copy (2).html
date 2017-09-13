@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html data-ng-app="">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+<div ng-init="employee=[{name:'John'},{name:'Jane'},{name:'Joe'},{name:'Kav'},{name:'Pre'},{name:'nan'}]">
+<div data-ng-repeat="emp in employee| orderBy:'name'">
+    {{emp.name}}
+</div>
+</div>
+
+
+</body>
+</html>

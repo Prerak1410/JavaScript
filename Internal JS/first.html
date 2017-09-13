@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body data-ng-app="myApp">
+<h1>Hello World!</h1>
+
+    <div side-bar>
+
+    </div>
+
+
+<script>
+    var app=angular.module('myApp',[]);
+    app.directive("sideBar",function () {
+        return{
+            restrict:'AECM',
+            template: "<div><h1>Hey Prerak</h1><p>{{name}}</p></div>",
+            replace: true,
+            controller:function ($scope) {
+                $scope.name="Mirank";
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

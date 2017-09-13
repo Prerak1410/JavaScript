@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body data-ng-app="myApp">
+<h1>Hello World!</h1>
+
+<div>
+
+    <div>
+        <welcome hi>Hie</welcome>
+    </div>
+
+
+</div>
+
+<script>
+    var app=angular.module('myApp',[]);
+    app.directive("welcome",function () {
+        return {
+            restrict: "E",
+            controller: function ($scope) {
+                $scope.words = [];
+                this.sayHi = function () {
+                    $scope.words.push("Hi");
+                };
+
+                this.sayHello = function () {
+                    $scope.words.push("Hello");
+                };
+
+            },
+
+            link: function (scope, el) {
+                el.on("mouseenter", function () {
+                    console.log(scope.words);
+                })
+            }
+        }
+    });
+
+    app.directive("hi",function () {
+        return{
+            //restrict:'A',
+            require:"welcome",
+            link: function (scope,el,attr,wellCtrl) {
+                wellCtrl.sayHi();
+                }
+            }
+        }
+    )
+</script>
+
+</body>
+</html>

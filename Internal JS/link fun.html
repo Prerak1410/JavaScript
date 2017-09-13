@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body data-ng-app="myApp">
+<h1>Hello World!</h1>
+
+<div ng-controller="mainCtrl">
+
+
+    <p font-scale="Size" >Prerak KarerP</p>
+    <input type="text" ng-model="Size">
+
+</div>
+
+<script>
+    var app=angular.module('myApp',[]);
+    app.controller("mainCtrl",function ($scope) {
+        $scope.size=50;
+    })
+    app.directive("fontScale",function () {
+        return{
+            restrict:'AECM',
+            template: `<h1>This is in Directives</h1>`,
+            transclude: true,
+            replace: false,
+            link: function (scope,el,attr) {
+                scope.$watch(attr["fontScale"],function (p1, p2) {
+                    el.css("font-size",p1+"%");
+                })
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

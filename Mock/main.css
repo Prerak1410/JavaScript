@@ -1,0 +1,52 @@
+#One{
+    border: 3px solid black;
+    width: 1100px;
+    margin: auto;
+    padding: 30px;
+}
+#Two{
+    border: 3px solid black;
+    width: 1100px;
+    margin: auto;
+    padding: 30px;
+}
+
+.M{
+    vertical-align: top;
+    display: inline-block;
+    width: 240px;
+    height: 120px;
+    border: 2px solid red;
+    margin: 10px;
+    padding-left: 10px;
+}
+
+.F{
+    vertical-align: top;
+    display: inline-block;
+    width: 240px;
+    height: 120px;
+    border: 2px solid blue;
+    margin: 10px;
+    padding-left: 10px;
+}
+
+#M{
+    vertical-align: top;
+    display: inline-block;
+    width: 240px;
+    height: 120px;
+    border: 2px solid red;
+    margin: 10px;
+    padding-left: 10px;
+}
+
+#F{
+    vertical-align: top;
+    display: inline-block;
+    width: 240px;
+    height: 120px;
+    border: 2px solid blue;
+    margin: 10px;
+    padding-left: 10px;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html data-ng-app="">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+<form name="Prerak" novalidate>
+    Name:
+    <input type="text" name="Pname" ng-model="Pname" ng-minlength="2" ng-maxlength="7" ng-pattern="/^[a-zA-Z]*$/" required>
+</form>
+
+<div ng-show="Prerak.Pname.$dirty && Prerak.Pname.$invalid">
+    <spam ng-show="Prerak.Pname.$error.pattern && Prerak.Pname.$error.minlength">Enter valid name </spam>
+    <span ng-show="Prerak.Pname.$error.minlength">Enter more than 1 letter</span>
+    <span ng-show="Prerak.Pname.$error.maxlength">Enter less than 7 letter</span>
+    <span ng-show="Prerak.Pname.$error.required">Required</span>
+    <span ng-show="Prerak.Pname.$error.pattern">Enter valid name</span>
+
+
+</div>
+
+
+</body>
+</html>
